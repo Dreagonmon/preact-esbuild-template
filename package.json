@@ -1,0 +1,22 @@
+{
+  "name": "preact-esbuild-template",
+  "version": "0.0.1",
+  "description": "preact with esbuild and service worker",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs build",
+    "serve": "node build.mjs serve"
+  },
+  "author": "Dreagonmon",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.47"
+  },
+  "dependencies": {
+    "preact": "^10.13.2",
+    "workbox-core": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4"
+  }
+}
