@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "build": "deno run --allow-net=deno.land,registry.npmjs.org --allow-read --allow-write=.,/tmp --allow-env --allow-run build.mjs build",
+    "watch": "deno run --allow-net=deno.land,registry.npmjs.org --allow-read --allow-write=.,/tmp --allow-env --allow-run build.mjs watch"
+  },
+  "imports": {
+    "preact": "npm:preact@^10.13.2",
+    "workbox-core": "npm:workbox-core@^6.5.4",
+    "workbox-routing": "npm:workbox-routing@^6.5.4",
+    "workbox-strategies": "npm:workbox-strategies@^6.5.4"
+  },
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment"
+  }
+}

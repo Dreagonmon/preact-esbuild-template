@@ -1,3 +1,3 @@
 # Preact template
 
-ESBuild + Preact + ServiceWorker
+ESBuild + Preact + ServiceWorker, build with deno.

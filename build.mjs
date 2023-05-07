@@ -1,18 +1,23 @@
-import { build, serve } from "esbuild";
-// @ts-ignore
-import { argv } from "node:process";
+import { build, stop } from 'https://deno.land/x/esbuild@v0.17.18/wasm.js';
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.7.0/mod.ts";
 
-const BUILD_DIR = "dist";
+const BUILD_DIR_PATH_STRING = "dist";
+Deno.mkdirSync(BUILD_DIR_PATH_STRING, { recursive: true })
+const BUILD_DIR = Deno.realPathSync(BUILD_DIR_PATH_STRING);
 
 const getBuildOptions = () => {
-    
-    /** @type { import("esbuild").BuildOptions } */
+
+    /** @type { import("https://deno.land/x/esbuild@v0.17.18/mod.js").BuildOptions } */
     const BUILD_OPTIONS = {
         platform: "browser",
+        plugins: [ ...denoPlugins({
+            loader: "native",
+            configPath: Deno.realPathSync("deno.json"),
+        }) ],
         entryPoints: [
-            "src/index.html",
-            "src/index.js",
-            "src/sw.js",
+            // "src/index.html",
+            Deno.realPathSync("src/index.js"),
+            Deno.realPathSync("src/sw.js"),
         ],
         jsxFactory: "h",
         jsxFragment: "Fragment",
@@ -31,21 +36,13 @@ const getBuildOptions = () => {
     return BUILD_OPTIONS;
 };
 
-const getServeOptions = () => {
-    /** @type { import("esbuild").ServeOptions } */
-    const SERVE_OPTIONS = {
-        port: 8001,
-        servedir: BUILD_DIR,
-    };
-    return SERVE_OPTIONS;
-};
-
 // main
 (async () => {
-    const cmd = argv[2]
+    const cmd = Deno.args.at(0);
     if (cmd == "build") {
         await build(getBuildOptions());
-    } else if (cmd == "serve") {
-        await serve(getServeOptions(), getBuildOptions());
+        stop();
+    } else if (cmd == "watch") {
+        //
     }
-})()
+})();
