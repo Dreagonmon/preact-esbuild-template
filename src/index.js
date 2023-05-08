@@ -1,4 +1,4 @@
-import { render } from "preact";
+import { render, h } from "preact";
 import { App } from "./route/app.jsx";
 import "./index.css";
 // register sw
@@ -10,4 +10,4 @@ if (self.navigator?.serviceWorker) {
 
 console.log("Hello World");
 
-render(App(), document.querySelector("#app"))
+render(h(App, {}), document.querySelector("#app"))
