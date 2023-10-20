@@ -1,4 +1,4 @@
-import { build, serve } from "esbuild";
+import { build, context } from "esbuild";
 // @ts-ignore
 import { argv } from "node:process";
 
@@ -46,6 +46,7 @@ const getServeOptions = () => {
     if (cmd == "build") {
         await build(getBuildOptions());
     } else if (cmd == "serve") {
-        await serve(getServeOptions(), getBuildOptions());
+        const ctx = await context(getBuildOptions());
+        await ctx.serve(getServeOptions());
     }
 })()

@@ -5,7 +5,7 @@
         "jsxFactory": "h",
         "jsxFragmentFactory": "Fragment",
         "module": "ESNext",
-        "moduleResolution": "nodenext",
+        "moduleResolution": "bundler",
         "checkJs": true
     }
 }

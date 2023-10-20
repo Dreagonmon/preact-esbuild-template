@@ -1,3 +1,9 @@
+// @ts-check
+/// <reference no-default-lib="false"/>
+/// <reference lib="ESNext" />
+/// <reference lib="webworker" />
+const self = /** @type {ServiceWorkerGlobalScope} */ (/** @type {unknown} */ (globalThis.self));
+
 import { StaleWhileRevalidate } from "workbox-strategies";
 import { registerRoute, Route } from "workbox-routing";
 
