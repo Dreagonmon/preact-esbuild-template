@@ -11,12 +11,12 @@
   "author": "Dreagonmon",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.19.5"
+    "esbuild": "^0.20.2"
   },
   "dependencies": {
-    "preact": "^10.18.1",
-    "workbox-core": "^7.0.0",
-    "workbox-routing": "^7.0.0",
-    "workbox-strategies": "^7.0.0"
+    "preact": "^10.21.0",
+    "workbox-core": "^7.1.0",
+    "workbox-routing": "^7.1.0",
+    "workbox-strategies": "^7.1.0"
   }
 }

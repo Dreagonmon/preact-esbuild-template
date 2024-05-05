@@ -5,7 +5,7 @@ import { argv } from "node:process";
 const BUILD_DIR = "dist";
 
 const getBuildOptions = () => {
-    
+
     /** @type { import("esbuild").BuildOptions } */
     const BUILD_OPTIONS = {
         platform: "browser",
@@ -42,11 +42,13 @@ const getServeOptions = () => {
 
 // main
 (async () => {
-    const cmd = argv[2]
+    const cmd = argv[ 2 ];
     if (cmd == "build") {
         await build(getBuildOptions());
     } else if (cmd == "serve") {
         const ctx = await context(getBuildOptions());
-        await ctx.serve(getServeOptions());
+        const serveOptions = getServeOptions();
+        console.log(`server run at: http://${serveOptions.host ?? "127.0.0.1"}:${serveOptions.port ?? 8000}`);
+        await ctx.serve(serveOptions);
     }
-})()
+})();
