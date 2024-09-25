@@ -1,5 +1,6 @@
 // @ts-check
-/// <reference no-default-lib="false"/>
+
+/// <reference no-default-lib="true"/>
 /// <reference lib="ESNext" />
 /// <reference lib="webworker" />
 const self = /** @type {ServiceWorkerGlobalScope} */ (/** @type {unknown} */ (globalThis.self));
